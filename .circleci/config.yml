@@ -50,5 +50,5 @@ workflows:
   sample: 
     jobs:
       - build-and-test
-      - sonarqube:
-          context: SonarCloud
+#      - sonarqube:
+#          context: SonarCloud
