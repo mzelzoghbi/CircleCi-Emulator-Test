@@ -32,6 +32,16 @@ jobs:
           command: |
             ./gradlew assembleRelease    
 
+
+  sonarqube:
+    docker:
+      - image: 'circleci/openjdk:11-jdk'
+    steps:
+      - checkout
+      - run:
+          name: Analyze on SonarCloud
+          command: gradle build sonarqube"
+
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
@@ -40,3 +50,5 @@ workflows:
   sample: 
     jobs:
       - build-and-test
+      - sonarqube:
+          context: SonarCloud
