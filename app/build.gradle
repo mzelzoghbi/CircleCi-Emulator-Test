@@ -1,8 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "org.sonarqube" version "3.2.0"
 }
 
+sonarqube {
+    properties {
+        property "sonar.projectKey", "mzelzoghbi_CircleCi-Emulator-Test"
+        property "sonar.organization", "mzelzoghbi"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -42,4 +50,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'com.instabug.library:instabug:10.5.1'
 }
